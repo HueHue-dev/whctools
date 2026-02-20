@@ -36,7 +36,7 @@
                                 <span class="whctools-warning"><i class="fa fas fa-exclamation-triangle"></i>
                                 {{ corp_requirements_message }}
                                 </span>
-                            {% elif auth_char.is_active %}
+                            {% elif auth_char.has_skills %}
                                 {% if auth_char.is_main or auth_char.is_main_member %}
                                     {% if auth_char.application.member_state == auth_char.application.MembershipStates.NOTAMEMBER%}
                                         {% if auth_char.is_main %}

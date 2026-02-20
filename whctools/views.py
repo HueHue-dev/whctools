@@ -132,7 +132,7 @@ def index(request):
                 application.member_state = Applications.MembershipStates.NOTAMEMBER
                 application.reject_reason = Applications.RejectionStates.NONE
                 application.save()
-            logger.debug("active: %s", ca_character.is_active())
+
             auth_characters.append(
                 {
                     "application": application,
@@ -141,7 +141,7 @@ def index(request):
                     "alliance_name": eve_char.alliance_name,
                     "char_id": eve_char.character_id,
                     "portrait_url": eve_char.portrait_url(64),
-                    "is_active": Skill.objects.filter(character=ca_character).exists(),
+                    "has_skills": Skill.objects.filter(character=ca_character).exists(),
                     "is_main": main_character_id == eve_char.character_id,
                     "is_main_member": is_main_accepted,
                     "is_in_approved_corp": is_in_approved_corp,
